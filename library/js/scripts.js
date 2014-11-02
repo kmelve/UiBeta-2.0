@@ -26,7 +26,47 @@ if (!window.getComputedStyle) {
         return this;
     };
 }
+   try{Typekit.load();}catch(e){}
 
+    // lets load spanner.js
+    try {
+        spanner( document.getElementsByClassName("logo") );
+    } catch (e) {
+        console.warn(e); // element not found or not eligible;
+    }
+
+    // Dysleksi
+    if ($.cookie('dyslexic') == "yes") {
+        $("body, a, label, h1, h2, h3").addClass("dyslexic");
+        $("#dysleksi").removeClass("disabled");
+    }
+
+    // When the span is clicked
+    $("#dysleksi").on('click', (function () {
+        // Check the current cookie value
+        // If the cookie is empty or set to no, then add dyslexic
+        if ($.cookie('dyslexic') == "undefined" || $.cookie('dyslexic') == "no") {
+            // Set cookie value to yes
+            $.cookie('dyslexic','yes', {expires: 365, path: '/'});
+            // Add the class to the body, a, label, h1, h2, h3
+            $("body, a, label, h1, h2, h3").addClass("dyslexic");
+            $("#dysleksi").removeClass("disabled");
+        }
+            // If the cookie was already set to yes then remove it
+        else {
+            $.cookie('dyslexic','no',  {expires: 365, path: '/'});
+            $("body, a, label, h1, h2, h3").removeClass("dyslexic");
+            $("#dysleksi").addClass("disabled");
+        }
+    }));
+
+    // Activate Bigfoot.js
+    $.bigfoot();
+
+    $('#comment').wordcounter({
+        limit: 400,
+        message: 'Du hadde mykje på hjartet. Kanskje dette kunne blitt eit innlegg? Send oss gjerne ein <a href="#" onclick="location.href=&quot;mailto:knut.melvar@ahkr.uib.no?subject=Forslag%20til%20UiBeta&body=&quot;+document.getElementById(&quot;comment&quot;).value;" value="Send">epost</a>.'
+    });
 
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
@@ -70,47 +110,7 @@ jQuery(document).ready(function($) {
 	// add all your scripts here
 
     // Activate Typekit
-    try{Typekit.load();}catch(e){}
-
-    // lets load spanner.js
-    try {
-        spanner( document.getElementsByClassName("logo") );
-    } catch (e) {
-        console.warn(e); // element not found or not eligible;
-    }
-
-    // Dysleksi
-    if ($.cookie('dyslexic') == "yes") {
-        $("body, a, label, h1, h2, h3").addClass("dyslexic");
-        $("#dysleksi").removeClass("disabled");
-    }
-
-    // When the span is clicked
-    $("#dysleksi").on('click', (function () {
-        // Check the current cookie value
-        // If the cookie is empty or set to no, then add dyslexic
-        if ($.cookie('dyslexic') == "undefined" || $.cookie('dyslexic') == "no") {
-            // Set cookie value to yes
-            $.cookie('dyslexic','yes', {expires: 365, path: '/'});
-            // Add the class to the body, a, label, h1, h2, h3
-            $("body, a, label, h1, h2, h3").addClass("dyslexic");
-            $("#dysleksi").removeClass("disabled");
-        }
-            // If the cookie was already set to yes then remove it
-        else {
-            $.cookie('dyslexic','no',  {expires: 365, path: '/'});
-            $("body, a, label, h1, h2, h3").removeClass("dyslexic");
-            $("#dysleksi").addClass("disabled");
-        }
-    }));
-
-    // Activate Bigfoot.js
-    $.bigfoot();
-
-    $('#comment').wordcounter({
-        limit: 400,
-        message: 'Du hadde mykje på hjartet. Kanskje dette kunne blitt eit innlegg? Send oss gjerne ein <a href="#" onclick="location.href=&quot;mailto:knut.melvar@ahkr.uib.no?subject=Forslag%20til%20UiBeta&body=&quot;+document.getElementById(&quot;comment&quot;).value;" value="Send">epost</a>.'
-    });
+ 
  
 }); /* end of as page load scripts */
 

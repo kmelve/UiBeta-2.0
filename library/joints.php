@@ -110,12 +110,24 @@ function joints_scripts_and_styles() {
   if (!is_admin()) {
     $theme_version = wp_get_theme()->Version;
 
+    wp_enqueue_script( 'typekit', '//use.typekit.net/nfo6uyf.js', array(), false );
+    wp_enqueue_script( 'spanner', get_stylesheet_directory_uri() . '/bower_components/spanner/spanner.js', array(), '', false );
+    wp_enqueue_script( 'jq-cookie', get_stylesheet_directory_uri() . '/bower_components/jquery.cookie/jquery.cookie.js', array(), '', false );
+    wp_enqueue_script( 'bigfoot', get_stylesheet_directory_uri() . '/bower_components/bigfoot/dist/bigfoot.min.js', array(), '', false );
+    
+
+    // adding typekit to the header
+    wp_register_script( 'typekit', '//use.typekit.net/nfo6uyf.js', array(), false );
+
 	// removes WP version of jQuery
 	wp_deregister_script('jquery');
 	
 	// loads jQuery 2.1.0
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/bower_components/foundation/js/vendor/jquery.js', array(), '2.1.0', false );
     
+    // Word Counter
+	wp_enqueue_script( 'wordcounter', get_stylesheet_directory_uri() . '/library/js/wordcounter.js', array( 'jquery' ), '1.0', true );
+
     // modernizr (without media query polyfill)
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/bower_components/foundation/js/vendor/modernizr.js', array(), '2.5.3', false );
     
@@ -126,26 +138,9 @@ function joints_scripts_and_styles() {
     wp_enqueue_style( 'joints-stylesheet', get_template_directory_uri() . '/library/css/style.css', array(), $theme_version, 'all' );
     
     // register foundation icons
-    wp_enqueue_style( 'foundation-icons', get_template_directory_uri() . '/bower_components/foundation/css/icons/foundation-icons.css', array(), $theme_version, 'all' );
-
-    // adding spanner.js to the mix
-    wp_register_script( 'spanner', get_stylesheet_directory_uri() . '/bower_components/spanner/spanner.js', array(), '', true );
-
-    // adding bigfoot.js awesome footnotes to the footer
-    wp_register_script( 'bigfoot', get_stylesheet_directory_uri() . '/bower_components/bigfoot/dist/bigfoot.min.js', array( 'jquery' ), '', true );
-
-    wp_register_script( 'wordcounter', get_stylesheet_directory_uri() . '/library/js/wordcounter.js', array( 'jquery' ), '', true );
-
-    // jquery cookie plugin
-    wp_register_script( 'cookie', get_stylesheet_directory_uri() . '/bower_components/jquery.cookie/jquery.cookie.js', array( 'jquery' ), '', true );
-
-	// adding the bigfoot style
-	wp_register_style( 'bigfoot', get_stylesheet_directory_uri() . '/bower_components/bigfoot/dist/bigfoot-default.css', array(), '', all );
-
-   	// OUR OWN SCRIPTS
-
-    // adding typekit to the header
-    wp_register_script( 'typekit', '//use.typekit.net/nfo6uyf.js', array(), false );
+    wp_enqueue_style( 'foundation-icons', get_template_directory_uri() . '/library/css/icons/foundation-icons.css', array(), $theme_version, 'all' );
+    
+    wp_enqueue_style( 'bigfoot', get_template_directory_uri() . '/bower_components/bigfoot/dist/bigfoot-default.css', array(), '', 'all' );
 
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -155,59 +150,22 @@ function joints_scripts_and_styles() {
     //adding scripts file in the footer
     wp_enqueue_script( 'joints-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), $theme_version, true );
 
+
     /*
     I recommend using a plugin to call jQuery
     using the google cdn. That way it stays cached
     and your site will load faster.
     */
-    wp_enqueue_script( 'joints-js' );
-
-  }
-}
- if (!is_admin()) {
-
+    
+    
     
 
-    // comment reply script for threaded comments
-    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-      wp_enqueue_script( 'comment-reply' );
-    }
-
-    //adding scripts file in the footer
-    wp_register_script( 'joints-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
-
-    // enqueue styles and scripts
-    wp_enqueue_script( 'joints-modernizr' );
-    wp_enqueue_script ('foundation-js');
-    wp_enqueue_script( 'typekit' );
-    wp_enqueue_script( 'bigfoot' );
-    wp_enqueue_script( 'spanner' );
-    wp_enqueue_script( 'cookie' );
-    wp_enqueue_script( 'wordcounter' );
-    wp_enqueue_style( 'joints-stylesheet' );
-    wp_enqueue_style( 'foundation-icons' );
-    wp_enqueue_style( 'bigfoot' );
-
-    $wp_styles->add_data( 'joints-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
-
-    /*
-    I recommend using a plugin to call jQuery
-    using the google cdn. That way it stays cached
-    and your site will load faster.
-    */
     wp_enqueue_script( 'joints-js' );
+	
 
   }
-
-
-
-//Replace jQuery with Google CDN jQuery
-if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
-function my_jquery_enqueue() {
-   wp_deregister_script('jquery');
-   wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js", false, null);
-   wp_enqueue_script('jquery');
 }
+
 
 /*********************
 THEME SUPPORT
