@@ -15,7 +15,7 @@ function disable_default_dashboard_widgets() {
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
 
-	// remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
@@ -40,7 +40,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
 function joints_rss_dashboard_widget() {
 	if(function_exists('fetch_feed')) {
 		include_once(ABSPATH . WPINC . '/feed.php');               // include the required file
-		$feed = fetch_feed('http://themble.com/feed/rss/');        // specify the source feed
+		$feed = fetch_feed('http://meldinger.uib.no/rss.php?meldingstype=itdrif');        // specify the source feed
 		$limit = $feed->get_item_quantity(7);                      // specify number of items
 		$items = $feed->get_items(0, $limit);                      // create an array of items
 	}
@@ -107,7 +107,7 @@ you like.
 
 // Custom Backend Footer
 function joints_custom_admin_footer() {
-	_e('<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/joints" target="_blank">joints</a>.', 'jointstheme');
+	_e('<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">UiBeta</a></span>. Built using <a href="http://themble.com/joints" target="_blank">joints</a>.', 'jointstheme');
 }
 
 // adding it to the admin area
