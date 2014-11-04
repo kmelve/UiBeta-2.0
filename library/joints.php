@@ -51,7 +51,7 @@ function joints_start() {
 
 /*********************
 WP_HEAD GOODNESS
-The default wordpress head is a mess. 
+The default wordpress head is a mess.
 Let's clean it up by removing all the junk we don't need.
 *********************/
 
@@ -114,33 +114,30 @@ function joints_scripts_and_styles() {
     wp_enqueue_script( 'spanner', get_stylesheet_directory_uri() . '/bower_components/spanner/spanner.js', array(), '', false );
     wp_enqueue_script( 'jq-cookie', get_stylesheet_directory_uri() . '/bower_components/jquery.cookie/jquery.cookie.js', array(), '', false );
     wp_enqueue_script( 'bigfoot', get_stylesheet_directory_uri() . '/bower_components/bigfoot/dist/bigfoot.min.js', array(), '', false );
-    
 
-    // adding typekit to the header
-    wp_register_script( 'typekit', '//use.typekit.net/nfo6uyf.js', array(), false );
 
 	// removes WP version of jQuery
 	wp_deregister_script('jquery');
-	
+
 	// loads jQuery 2.1.0
     wp_enqueue_script( 'jquery', get_template_directory_uri() . '/bower_components/foundation/js/vendor/jquery.js', array(), '2.1.0', false );
-    
+
     // Word Counter
 	wp_enqueue_script( 'wordcounter', get_stylesheet_directory_uri() . '/library/js/wordcounter.js', array( 'jquery' ), '1.0', true );
 
     // modernizr (without media query polyfill)
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/bower_components/foundation/js/vendor/modernizr.js', array(), '2.5.3', false );
-    
+
     // adding Foundation scripts file in the footer
     wp_enqueue_script( 'foundation-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array( 'jquery' ), $theme_version, true );
     wp_enqueue_script( 'foundation-equalizer-js', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.equalizer.js', array( 'jquery' ), $theme_version, true );
-   
+
     // register main stylesheet
     wp_enqueue_style( 'joints-stylesheet', get_template_directory_uri() . '/library/css/style.css', array(), $theme_version, 'all' );
-    
+
     // register foundation icons
     wp_enqueue_style( 'foundation-icons', get_template_directory_uri() . '/library/css/icons/foundation-icons.css', array(), $theme_version, 'all' );
-    
+
     wp_enqueue_style( 'bigfoot', get_template_directory_uri() . '/bower_components/bigfoot/dist/bigfoot-default.css', array(), '', 'all' );
 
     // comment reply script for threaded comments
@@ -157,12 +154,12 @@ function joints_scripts_and_styles() {
     using the google cdn. That way it stays cached
     and your site will load faster.
     */
-    
-    
-    
+
+
+
 
     wp_enqueue_script( 'joints-js' );
-	
+
 
   }
 }
@@ -181,7 +178,7 @@ function joints_theme_support() {
 	// default thumb size
 	set_post_thumbnail_size(125, 125, true);
 
-	// rss 
+	// rss
 	add_theme_support('automatic-feed-links');
 
 	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
@@ -203,16 +200,16 @@ function joints_theme_support() {
 
 	// wp menus
 	add_theme_support( 'menus' );
-	
+
 	//html5 support (http://themeshaper.com/2013/08/01/html5-support-in-wordpress-core/)
-	add_theme_support( 'html5', 
-	         array( 
-	         	'comment-list', 
-	         	'comment-form', 
-	         	'search-form', 
-	         ) 
+	add_theme_support( 'html5',
+	         array(
+	         	'comment-list',
+	         	'comment-form',
+	         	'search-form',
+	         )
 	);
-	
+
 
 } /* end joints theme support */
 
@@ -312,9 +309,9 @@ ADD FOUNDATION FEATURES TO WORDPRESS
 function nav_menu_item_parent_classing( $classes, $item )
 {
     global $wpdb;
-    
-    if ( 
-        !property_exists( $item, 'classes' ) 
+
+    if (
+        !property_exists( $item, 'classes' )
         || !is_array( $item->classes )
     ) {
         return $classes;
@@ -328,7 +325,7 @@ function nav_menu_item_parent_classing( $classes, $item )
 
     return $classes;
 }
- 
+
 add_filter( "nav_menu_css_class", "nav_menu_item_parent_classing", 10, 2 );
 
 //Deletes empty classes and changes the sub menu class name
