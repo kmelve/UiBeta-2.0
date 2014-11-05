@@ -639,6 +639,7 @@ $code-font-family: "source-code-pro", 'Liberation Mono', 'Monaco', Courier, mono
 
 // Off-canvas
 
+
  $tabbar-bg: $transparent;
  $tabbar-height: rem-calc(55);
 // $tabbar-line-height: $tabbar-height;
@@ -1131,8 +1132,7 @@ $code-font-family: "source-code-pro", 'Liberation Mono', 'Monaco', Courier, mono
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #4d4d4d;
-$topbar-bg-color: $transparent;
+ $topbar-bg-color: hsla(0,0,0,0);
  $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1142,11 +1142,11 @@ $topbar-bg-color: $transparent;
 // Control Input height for top bar
 
 // Controlling the styles for the title in the top bar
-// $topbar-title-weight: normal;
+ $topbar-title-weight: 600;
 // $topbar-title-font-size: rem-calc(24);
 
 // Style the top bar dropdown elements
- $topbar-dropdown-bg: hsla(0,0,15,0.9);
+ $topbar-dropdown-bg: hsla(0,0,15,0);
 // $topbar-dropdown-link-color: #fff;
  $topbar-dropdown-link-bg: $topbar-dropdown-bg;
  //$topbar-dropdown-toggle-size: 5px;

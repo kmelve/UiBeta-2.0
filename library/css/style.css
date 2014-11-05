@@ -4363,7 +4363,7 @@ meta.foundation-mq-topbar {
       font-size: 1.0625rem;
       margin: 0; }
       .top-bar .name h1 a {
-        font-weight: normal;
+        font-weight: 600;
         color: #009de0;
         width: 75%;
         display: block;
@@ -4432,7 +4432,7 @@ meta.foundation-mq-topbar {
     height: 1px;
     width: 100%; }
   .top-bar-section ul li {
-    background: rgba(38, 38, 38, 0.9); }
+    background: rgba(38, 38, 38, 0); }
     .top-bar-section ul li > a {
       display: block;
       width: 100%;
@@ -4692,10 +4692,10 @@ meta.foundation-mq-topbar {
         line-height: 45px;
         white-space: nowrap;
         padding: 12px 15px;
-        background: rgba(38, 38, 38, 0.9); }
+        background: rgba(38, 38, 38, 0); }
       .top-bar-section .dropdown li:not(.has-form) a:not(.button) {
         color: #fff;
-        background: rgba(38, 38, 38, 0.9); }
+        background: rgba(38, 38, 38, 0); }
       .top-bar-section .dropdown li:not(.has-form):hover > a:not(.button) {
         color: #fff;
         background: #009de0; }
@@ -5442,6 +5442,9 @@ body {
   .label a img#wpstats, .updated img#wpstats {
     /* Makes the silly smiley face (used for statistics) go away */
     display: none; }
+
+iframe {
+  height: auto; }
 
 /********************
 WORDPRESS BODY CLASSES
