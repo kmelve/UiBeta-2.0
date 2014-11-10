@@ -60,7 +60,7 @@ function joints_rss_dashboard_widget() {
 
 // calling all custom dashboard widgets
 function joints_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('joints_rss_dashboard_widget', __('Recently on Themble (Customize on admin.php)', 'jointstheme'), 'joints_rss_dashboard_widget');
+	//wp_add_dashboard_widget('joints_rss_dashboard_widget', __('Recently on Themble (Customize on admin.php)', 'jointstheme'), 'joints_rss_dashboard_widget');
 	/*
 	Be sure to drop any other created Dashboard Widgets
 	in this function and they will all load.
@@ -71,7 +71,7 @@ function joints_custom_dashboard_widgets() {
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 // adding any custom widgets
-add_action('wp_dashboard_setup', 'joints_custom_dashboard_widgets');
+//add_action('wp_dashboard_setup', 'joints_custom_dashboard_widgets');
 
 
 /************* CUSTOM LOGIN PAGE *****************/
