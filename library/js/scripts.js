@@ -109,7 +109,7 @@ jQuery(document).ready(function($) {
 
 	// add all your scripts here
 
-    // Activate Typekit
+
 
 
 }); /* end of as page load scripts */
