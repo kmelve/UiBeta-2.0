@@ -169,6 +169,78 @@ function fb_home_image( $tags ) {
 add_filter( 'jetpack_open_graph_tags', 'fb_home_image' );
 
 /*********************
+ShortCode for jumping to specific points in an embedded video (e.g. YouTube)
+Livar Bergheim 2015-02-14
+
+Shortcode in blog-post:
+[videolink time="3:05"]
+
+To a specific video;
+[videolink time="3:05" divid="id"]
+
+NB! YouTube-video must be embedded manually, not automatically in Wordpress.
+Example:
+<div id="whateverID"><iframe style="height: 390px;" title="YouTube video player" src="http://www.youtube.com/embed/IWDvJaTAbV0?enablejsapi=1&amp;t=2m55s" width="640" height="390" frameborder="0"></iframe></div>
+
+Note enclosing <div> and enablejsapi=1 in the iframe-tag.
+
+Advanced version of shortcode - not active
+[videolinks times="3:05, 12:00" texts="Start; More stuff"]
+
+Inspiration from:
+- http://stackoverflow.com/a/19062506
+- http://codex.wordpress.org/Shortcode_API
+- http://www.wpbeginner.com/wp-tutorials/how-to-add-a-shortcode-in-wordpress/
+*********************/
+
+// helper-method: converts HH:MM:SS/MM:SS to seconds
+function timecodeToSeconds($timecode) {
+	$split = explode(':', $timecode);
+	if (count($split) == 3) { // for hours, minutes and seconds
+		return (intval($split[0]) * 60 * 60) + (intval($split[1]) * 60) + intval($split[2]);
+	} else { // only minutes and seconds
+		return (intval($split[0]) * 60) + intval($split[1]);
+	}
+}
+
+/* longer version
+function my_videolink_shortcode_handler($atts, $content = null) {
+    $output = '';
+    $i = 0;
+    $times = explode( ', ', $atts['times'] );
+    $texts = explode( '; ', $atts['texts'] );
+    foreach ($times as $time) {
+        $output .= sprintf(
+            '<a href="javascript:callPlayer(\'whateverID\', \'seekTo\', [%s, true])">%s</a> - %s<br />' . "\n",
+			timecodeToSeconds($time),
+            $time,
+            $texts[$i]
+        );
+        $i++;
+    }
+    return $output;
+}
+add_shortcode('videolinks', 'my_videolink_shortcode_handler');
+*/
+function my_videolink_shortcode_handler($atts, $content = null) {
+    $output = '';
+	$divID = "whateverID";
+	$time = $atts['time'];
+	if (isset($atts['divID'])) {
+		$divID = $atts['divID'];
+	} 
+    $output .= sprintf(
+		'<a href="javascript:callPlayer(\'%s\', \'seekTo\', [%s, true])">%s</a> ',
+		$divID,
+		timecodeToSeconds($time),
+		$time
+	);
+    return $output;
+}
+add_shortcode('videolink', 'my_videolink_shortcode_handler');
+
+
+/*********************
 COMMENT LAYOUT
 *********************/
 
