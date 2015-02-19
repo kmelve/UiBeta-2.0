@@ -1,13 +1,17 @@
 {
-  "name": "JointsWP",
-  "homepage": "http://jointswp.com/",
+  "name": "UiBeta",
+  "homepage": "http://beta.uib.no/",
   "authors": [
+    "Knut Melvær",
+    "Livar Bergheim",
     "Jeremy Englert"
   ],
-  "description": "A blank WordPress theme built with Foundation 5, giving you all the power and flexibility you need to build complex, mobile friendly websites without having to start from scratch.",
+  "description": "The UiBeta theme. Based and built upon JointsWP by Jeremy Englert and Foundation by the folks at ZURB.",
   "keywords": [
     "wordpress",
-    "foundation"
+    "foundation",
+    "uibeta",
+    "University of Bergen"
   ],
   "private": true,
   "ignore": [
@@ -18,6 +22,8 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "~5.2.1"
+    "foundation": "~5.5.1",
+    "bigfoot": "~2.1.1",
+    "spanner": "~1.0.0"
   }
 }
