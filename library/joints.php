@@ -110,19 +110,18 @@ function joints_scripts_and_styles() {
   if (!is_admin()) {
     $theme_version = wp_get_theme()->Version;
 
-    wp_enqueue_script( 'typekit', '//use.typekit.net/nfo6uyf.js', array(), false );
-    wp_enqueue_script( 'spanner', get_stylesheet_directory_uri() . '/bower_components/spanner/spanner.js', array(), '', false );
-    wp_enqueue_script( 'jq-cookie', get_stylesheet_directory_uri() . '/bower_components/jquery.cookie/jquery.cookie.js', array(), '', false );
-    wp_enqueue_script( 'bigfoot', get_stylesheet_directory_uri() . '/bower_components/bigfoot/dist/bigfoot.min.js', array(), '', false );
+	wp_enqueue_script( 'spanner', get_stylesheet_directory_uri() . '/bower_components/spanner/spanner.js', array(), '', false );
+	wp_enqueue_script( 'jq-cookie', get_stylesheet_directory_uri() . '/bower_components/jquery.cookie/jquery.cookie.js', array(), '', false );
+	wp_enqueue_script( 'bigfoot', get_stylesheet_directory_uri() . '/bower_components/bigfoot/dist/bigfoot.min.js', array(), '', false );
 
 
 	// removes WP version of jQuery
 	wp_deregister_script('jquery');
 
 	// loads jQuery 2.1.0
-    wp_enqueue_script( 'jquery', get_template_directory_uri() . '/bower_components/foundation/js/vendor/jquery.js', array(), '2.1.0', false );
+	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js', array(), '2.1.3', false );
 
-    // Word Counter
+	// Word Counter
 	wp_enqueue_script( 'wordcounter', get_stylesheet_directory_uri() . '/library/js/wordcounter.js', array( 'jquery' ), '1.0', true );
 
     // modernizr (without media query polyfill)
@@ -154,8 +153,6 @@ function joints_scripts_and_styles() {
     using the google cdn. That way it stays cached
     and your site will load faster.
     */
-
-
 
 
     wp_enqueue_script( 'joints-js' );

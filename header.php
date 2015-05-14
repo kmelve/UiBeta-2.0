@@ -26,6 +26,18 @@
 		<![endif]-->
 		<meta name="msapplication-TileColor" content="#f01d4f">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
+		<script src="//use.typekit.net/nfo6uyf.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+		<style type="text/css" media="screen">
+			.wf-loading {
+				/* ... */
+				/*background: url('../images/ajax-loader.gif') no-repeat center center;*/
+				height: 100%;
+				overflow: hidden;
+}
+
+		</style>
 
   	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 

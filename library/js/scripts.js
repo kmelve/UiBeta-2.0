@@ -7,7 +7,7 @@ this file will be called automatically in the footer so as not to
 slow the page load.
 
 */
- try{Typekit.load();}catch(e){}
+
 
     // lets load spanner.js
     try {
@@ -172,7 +172,7 @@ function callPlayer(frame_id, func, args) {
         iframe = iframe.getElementsByTagName('iframe')[0];
     }
     if (iframe) {
-        // Frame exists, 
+        // Frame exists,
         iframe.contentWindow.postMessage(JSON.stringify({
             "event": "command",
             "func": func,

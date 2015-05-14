@@ -44,7 +44,7 @@ library/admin.php
 library/translation/translation.php
 	- adding support for other languages
 */
-// require_once(get_template_directory().'/library/translation/translation.php'); // this comes turned off by default
+require_once(get_template_directory().'/library/translation/translation.php'); // this comes turned off by default
 
 /*********************
 MENUS & NAVIGATION
@@ -143,7 +143,7 @@ register_sidebar(array(
 		'before_title' => '<h4 class="widgettitle">',
 		'after_title' => '</h4>',
 	));
-	
+
 
 /*
 	To call the sidebar in your template, you can just copy
@@ -160,7 +160,7 @@ function fb_home_image( $tags ) {
     if ( is_home() ) {
         // Remove the default blank image added by Jetpack
         unset( $tags['og:image'] );
- 
+
         $fb_home_img = 'http://beta.uib.no/wp-content/themes/uibeta/library/images/opengraph.png';
         $tags['og:image'] = esc_url( $fb_home_img );
     }
@@ -228,7 +228,7 @@ function my_videolink_shortcode_handler($atts, $content = null) {
 	$time = $atts['time'];
 	if (isset($atts['divID'])) {
 		$divID = $atts['divID'];
-	} 
+	}
     $output .= sprintf(
 		'<a href="javascript:callPlayer(\'%s\', \'seekTo\', [%s, true])">%s</a> ',
 		$divID,
