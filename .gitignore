@@ -13,5 +13,6 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
 sftp-config.json
-*.codekit
+config.codekit
+.codekit-cache
 bower_components/
