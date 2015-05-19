@@ -5972,7 +5972,7 @@ blockquote p {
   height: 2.5rem;
   padding: 0;
   position: relative;
-  text-indent: 2.1875rem;
+  text-indent: 0.1875rem;
   transform: translate3d(0, 0, 0);
   width: 3.4375rem; }
   .tab-bar .menu-icon span::after {

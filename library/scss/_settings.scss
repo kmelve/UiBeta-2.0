@@ -677,7 +677,7 @@ $code-font-family: "source-code-pro", 'Liberation Mono', 'Monaco', Courier, mono
  $tabbar-menu-icon-color: $primary-color;
  $tabbar-menu-icon-hover: lighten($tabbar-menu-icon-color, 90%);
 
- //$tabbar-menu-icon-text-indent: rem-calc(0);
+ $tabbar-menu-icon-text-indent: rem-calc(3);
  $tabbar-menu-icon-width: rem-calc(55);
  $tabbar-menu-icon-height: rem-calc(40);
  $tabbar-menu-icon-line-height: rem-calc(33);

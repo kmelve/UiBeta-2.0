@@ -4418,6 +4418,17 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/library\/js\/typekit.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/library\/js\/typekit.js",
+		"outputAbbreviatedPath": "\/library\/js\/min\/typekit-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/library\/js\/wordcounter.js": {
 		"fileType": 64,
 		"ignore": 0,
