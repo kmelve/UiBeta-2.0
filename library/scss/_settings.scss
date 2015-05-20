@@ -129,7 +129,7 @@
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
- $header-text-rendering: optimizeSpeed;
+ $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
  $h1-font-size: rem-calc(40);
@@ -741,8 +741,8 @@ $code-font-family: "source-code-pro", 'Liberation Mono', 'Monaco', Courier, mono
 // $include-html-nav-classes: $include-html-classes;
 
 // We use these to control the pagination container
-// $pagination-height: rem-calc(24);
-// $pagination-margin: rem-calc(-5);
+ $pagination-height: rem-calc(44);
+ $pagination-margin: rem-calc(1);
 
 // We use these to set the list-item properties
 // $pagination-li-float: $default-float;
@@ -754,7 +754,7 @@ $code-font-family: "source-code-pro", 'Liberation Mono', 'Monaco', Courier, mono
 // We use these for the pagination anchor links
 // $pagination-link-pad: rem-calc(1 10 1);
 // $pagination-link-font-color: #999;
-// $pagination-link-active-bg: scale-color(#fff, $lightness: -10%);
+ $pagination-link-active-bg: $secondary-color;
 
 // We use these for disabled anchor links
 // $pagination-link-unavailable-cursor: default;

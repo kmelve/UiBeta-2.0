@@ -1,11 +1,11 @@
-<div class="large-12 columns show-for-medium-up">
+<div class="large-6 columns show-for-medium-up">
 	<div class="contain-to-grid">
 		<nav class="top-bar" data-topbar>
 			<ul class="title-area">
 				<!-- Title Area -->
 
-				<li class="toggle-topbar menu-icon">
-					<a href="#"><span>Menu</span></a>
+				<li class="toggle-topbar">
+					<a href="#"><span>MENY</span></a>
 				</li>
 			</ul>
 			<section class="top-bar-section">
@@ -17,12 +17,11 @@
 
 
 
-<div class="small-5 columns show-for-small-only">
+<div class="small-6 columns show-for-small-only">
 	<div class="contain-to-grid">
 		<nav class="tab-bar">
-
-			<section class="right-small">
-				<a class="left-off-canvas-toggle menu-icon" ><span>Meny</span></a>
+			<section class="right">
+				<a class="left-off-canvas-toggle btn btn-orange btn-border-rev" >MENY</a>
 			</section>
 		</nav>
 	</div>

@@ -41,8 +41,17 @@ body {
 iframe {
     height: auto;
 }
-
-
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+h1 a {
+	color: $primary-color;
+}
+.page-navigation {
+	margin-top: 1em;
+	text-align: center;
+}
 /********************
 WORDPRESS BODY CLASSES
 style a page via class
@@ -55,27 +64,35 @@ style a page via class
 		z-index: 100;
 		padding: 8em 0 0 0;
 		border: 1px solid $secondary-color;
-		border-radius: 3px;
+		border-radius: $global-radius;
 		background-repeat: no-repeat;
 		background-size: cover;
+
+		h1 a {
+				color: $secondary-color;
+				font-size: 1.2em;
+				padding-top: 1em;
+				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+				line-height: 1.1;
+
+			}
+
 
 		section {
 			z-index: 100;
 			padding: 1em;
 
-			h1 a {
-				color: $secondary-color;
-				font-size: 1.2em;
-				padding-top: 1em;
-				text-shadow: 1px 1px 1px rgb(53, 36, 36);
-				line-height: 1.1;
-			}
+
 		}
 
 
 
 		&:nth-child(even) {
 			border: 1px solid $primary-color;
+
+			h1 a {
+				color: $primary-color;
+			}
 		}
 
 
@@ -88,7 +105,7 @@ style a page via class
 		height: 100%;
 		float: left;
 		z-index: -10;
-		border-radius: 3px;
+		border-radius: $global-radius;
 
 		img {
 			width: 100%;
@@ -102,8 +119,9 @@ style a page via class
 				display: block;
 				width: 100%;
 				height: 280px;
-				background: linear-gradient(to top, #fff 0%, #fff 68%, rgba(255, 255, 255, 0) 100%);
-				border-radius: 6px;
+				background: linear-gradient(to top, #fff 0%, #fff 70%, rgba(255,255,255,0.6) 100%);
+				box-shadow: 0px 27px 51px 65px rgba(255,255,255,0.6);
+				border-radius: $global-radius;
 		}
 
 	}
@@ -154,7 +172,7 @@ LINK STYLES
 *********************/
 
 a {
-	color: #000;
+	color: $primary-color;
 	-webkit-font-smoothing: $font-smoothing;
 	/*adds highlight on hover */
 	&:hover, &:focus {
@@ -186,6 +204,7 @@ a {
 }
 p {
     a {
+    	color: #000;
         background-image: linear-gradient(to top,
             rgba(0,0,0,0) 11%,
             rgba(0, 139, 199, 0.8) 11%,
@@ -326,6 +345,13 @@ and more scalable.
 	a {
 		 -webkit-font-smoothing: $font-smoothing;
 		 letter-spacing: 1px;
+
+			 &.left-off-canvas-toggle {
+			border: 1px solid #333;
+			color: $primary-color;
+			font-weight: 900;
+			letter-spacing: 1px;
+		}
 	}
 	.title-area {
 		z-index: 1;
@@ -348,6 +374,7 @@ POSTS & CONTENT STYLES
 
 	article {
 		margin-top: 2.2em;
+
 
 	}
 }
@@ -658,7 +685,7 @@ COMMENT STYLES
 			padding: 2px;
 			border: 1px solid #cecece;
 			background: #fff;
-			border-radius:  3px;
+			border-radius:  $global-radius;
 		}
 
 	} /* end .commentlist .vcard */
@@ -825,7 +852,7 @@ SIDEBARS & ASIDES
 
 	.widget {
 		background: rgba(255,255,255,0.5);
-		border-radius: 3px;
+		border-radius: $global-radius;
 		ul {
 
 
