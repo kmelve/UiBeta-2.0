@@ -1,5 +1,7 @@
 				<div id="sidebar1" class="sidebar large-4 medium-4 columns" role="complementary">
 
+				<?php get_template_part('partials/content', 'author'); ?>
+
 					<?php if ( is_active_sidebar( 'sidebar-single' ) ) : ?>
 
 						<?php dynamic_sidebar( 'sidebar-single' ); ?>
