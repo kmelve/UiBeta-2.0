@@ -17,6 +17,8 @@ of the styles inside media queries.
 // import normalize
 @import "../../bower_components/foundation/scss/normalize";
 
+@import "colorful-borders";
+
 // import mixins
 @import "mixins";
 
@@ -31,6 +33,7 @@ of the styles inside media queries.
 
 // dyslexic.scss
 @import "dyslexic";
+
 
 
 /*
